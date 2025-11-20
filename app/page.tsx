@@ -1,9 +1,10 @@
 import { getPosts } from "@/actions/posts/getPosts";
 import { getUsers } from "@/actions/users/getUsers";
 import PostCard from "@/components/mainPage/PostCard";
-import { baseApiPath } from "@/lib/src/constants";
 import { postType, userType } from "@/types";
 import { cacheLife } from "next/cache";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 
 
@@ -31,23 +32,28 @@ export default async function Home() {
   } = await getPostsAndUsers()
 
   return (
-    <div>
+    <div
+    className="flex flex-row flex-wrap container mx-auto"
+    >
+      <Suspense
+      fallback={<Loading/>}
+      >
+        {posts.map((post) => {
 
-      {posts.map((post) => {
-
-        const user = users.find((u) => u.id == post.userId)
-        return (
-          <div
-          key={post.id}
-          className="max-w-xs"
-          >
-            <PostCard
-            post={post}
-            user={user}
-            />
-          </div>
-        )
-      })}
+          const user = users.find((u) => u.id == post.userId)
+          return (
+            <div
+            key={post.id}
+            className="p-2 basis-1/5 h-full"
+            >
+              <PostCard
+              post={post}
+              user={user}
+              />
+            </div>
+          )
+        })}
+      </Suspense>
     </div>
   );
 }

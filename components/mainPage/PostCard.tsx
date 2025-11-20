@@ -29,6 +29,7 @@ export default function PostCard({
     user?: userType
 }) {
 
+
     const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false)
 
     return (
@@ -56,9 +57,6 @@ export default function PostCard({
                 setIsDialogOpen={setIsDialogOpen}
                 />
             </CardContent>
-            <CardFooter>
-
-            </CardFooter>
         </Card>
     )
 }

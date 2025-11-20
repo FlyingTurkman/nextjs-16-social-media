@@ -7,12 +7,13 @@ import { Separator } from "../ui/separator"
 import { P } from "../ui/p"
 import { Avatar, AvatarFallback } from "../ui/avatar"
 import { nameAvatarConverter } from "@/lib/src/nameAvatarConverter"
-import { Button } from "../ui/button"
-import { FaComment, FaHeart } from "react-icons/fa6"
+import { Button, buttonVariants } from "../ui/button"
+import { FaComment, FaHeart, FaRegHeart } from "react-icons/fa6"
 import { Dispatch, SetStateAction, useEffect, useState } from "react"
 import { getPostComments } from "@/actions/comments/getPostComments"
 import PostComment from "./PostComment"
 import CommentForm from "./CommentForm"
+import { Label } from "../ui/label"
 
 
 
@@ -64,15 +65,25 @@ export default function PostDialog({
         >
             <DialogTrigger>
                 <div
-                className="flex flex-col gap-4"
+                className="flex flex-col gap-2"
                 >
-                    <H2>
+                    <H2
+                    className="text-lg"
+                    >
                         {post.title}
                     </H2>
                     <Separator/>
-                    <P>
+                    <P
+                    className="line-clamp-2 mt-2!"
+                    >
                         {post.body}
                     </P>
+                    <Separator/>
+                    <Label
+                    className={buttonVariants({ variant: 'link', className: 'justify-start p-0' })}
+                    >
+                        Read more...
+                    </Label>
                 </div>
             </DialogTrigger>
             <DialogContent>
@@ -103,9 +114,22 @@ export default function PostDialog({
                     <div
                     className="flex flex-row items-center justify-between w-full"
                     >
-                        <Button>
-                            <FaHeart/>
-                            123
+                        <Button
+                        onClick={() => {
+                            if (isUserLiked) {
+                                setLikeCount((prev) => prev - 1)
+                            } else {
+                                setLikeCount((prev) => prev + 1)
+                            }
+                            setIsUserLiked((prev) => !prev)
+                        }}
+                        >
+                            {isUserLiked ? (
+                                <FaHeart/>
+                            ): (
+                                <FaRegHeart/>
+                            )}
+                            {likeCount}
                         </Button>
                         <Button
                         variant={'secondary'}
