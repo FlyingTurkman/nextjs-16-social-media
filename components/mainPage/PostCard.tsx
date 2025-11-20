@@ -6,6 +6,7 @@ import { Separator } from "../ui/separator"
 import PostDialog from "./PostDialog"
 import { Avatar, AvatarFallback } from "../ui/avatar"
 import { nameAvatarConverter } from "@/lib/src/nameAvatarConverter"
+import { useState } from "react"
 
 
 
@@ -28,6 +29,8 @@ export default function PostCard({
     user?: userType
 }) {
 
+    const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false)
+
     return (
         <Card>
             <CardHeader>
@@ -49,6 +52,8 @@ export default function PostCard({
                 <PostDialog
                 post={post}
                 user={user}
+                isDialogOpen={isDialogOpen}
+                setIsDialogOpen={setIsDialogOpen}
                 />
             </CardContent>
             <CardFooter>

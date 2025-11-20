@@ -46,3 +46,13 @@ export type userType = {
         bs: string
     }
 }
+
+
+
+
+export type commentType = {
+    postId: number
+    id: number
+    email: string
+    body: string
+}
