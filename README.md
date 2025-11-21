@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+# About Project
+This project was prepared for you to examine the cache component and suspense structure in Next.js 16.
+After running the project, you can fully observe how the cache component affects page load speed by enabling the “Disable cache” option in the Network settings inside DevTools.
+To examine how Suspense works, you can select options like “Slow 4G” in the Network settings.
+In this project, the skeleton loading part is completely simulated.
+
 ## Getting Started
 
 First, run the development server:
