@@ -5,6 +5,7 @@ import { postType, userType } from "@/types";
 import { cacheLife } from "next/cache";
 import { Suspense } from "react";
 import Loading from "./loading";
+import MainPageClient from "./page.client";
 
 
 
@@ -32,29 +33,10 @@ export default async function Home() {
   } = await getPostsAndUsers()
 
   return (
-    <div
-    className="flex flex-row flex-wrap container mx-auto"
-    >
-      <Suspense
-      fallback={<Loading/>}
-      >
-        {posts.map((post) => {
-
-          const user = users.find((u) => u.id == post.userId)
-          return (
-            <div
-            key={post.id}
-            className="p-2 basis-1/5 h-full"
-            >
-              <PostCard
-              post={post}
-              user={user}
-              />
-            </div>
-          )
-        })}
-      </Suspense>
-    </div>
+    <MainPageClient
+    posts={posts}
+    users={users}
+    />
   );
 }
 

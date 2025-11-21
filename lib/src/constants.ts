@@ -9,25 +9,25 @@ export const baseApiPath = 'https://jsonplaceholder.typicode.com'
 
 
 export const user: userType = {
-    id: 11,
+    id: 1,
+    name: "Leanne Graham",
+    username: "Bret",
+    email: "Sincere@april.biz",
     address: {
-        city: 'city',
-        geo: {
-            lat: 'lat',
-            lng: 'lng'
-        },
-        street: 'street',
-        suite: 'suite',
-        zipcode: 'zipcode'
+      street: "Kulas Light",
+      suite: "Apt. 556",
+      city: "Gwenborough",
+      zipcode: "92998-3874",
+      geo: {
+        lat: "-37.3159",
+        lng: "81.1496"
+      }
     },
+    phone: "1-770-736-8031 x56442",
+    website: "hildegard.org",
     company: {
-        bs: 'bs',
-        catchPhrase: 'cp',
-        name: 'name'
-    },
-    email: 'FlyingTurkman@asdasd.com',
-    name: 'Flying Turkman',
-    phone: 'phone',
-    username: 'FlyingTurkman',
-    website: 'website'
+      name: "Romaguera-Crona",
+      catchPhrase: "Multi-layered client-server neural-net",
+      bs: "harness real-time e-markets"
+    }
 }

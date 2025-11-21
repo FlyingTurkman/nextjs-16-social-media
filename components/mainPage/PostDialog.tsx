@@ -63,7 +63,9 @@ export default function PostDialog({
         open={isDialogOpen}
         onOpenChange={setIsDialogOpen}
         >
-            <DialogTrigger>
+            <DialogTrigger
+            className="w-full"
+            >
                 <div
                 className="flex flex-col gap-2"
                 >
