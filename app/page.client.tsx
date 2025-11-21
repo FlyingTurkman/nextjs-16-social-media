@@ -51,8 +51,7 @@ export default function MainPageClient({
             <Suspense
             fallback={<Loading/>}
             >
-            {posts.map((post, i) => {
-    
+            {posts.length != 0 && initialPosts.length == posts.length ? initialPosts.map((post, i) => {
                 const user = users.find((u) => u.id == post.userId)
 
                 if (isPostLoading && i == 0) {
@@ -67,20 +66,41 @@ export default function MainPageClient({
                     )
                 } else {
                     return (
-                    <Suspense
+                    <div
+                    className="p-2 basis-1/5 h-full"
                     key={i}
-                    fallback={<PostCardSkeleton/>}
-                    /* You can use skeleton loading like that for each component or wrap it like loading.tsx component */
                     >
+                        <PostCard
+                        post={post}
+                        user={user}
+                        />
+                    </div>
+                    )
+                }
+            }) : posts.map((post, i) => {
+                const user = users.find((u) => u.id == post.userId)
+
+                if (isPostLoading && i == 0) {
+
+                    /* It's simulation new post with skeleton loading. */
+                    return (
                         <div
                         className="p-2 basis-1/5 h-full"
                         >
-                            <PostCard
-                            post={post}
-                            user={user}
-                            />
+                            <PostCardSkeleton/>
                         </div>
-                    </Suspense>
+                    )
+                } else {
+                    return (
+                    <div
+                    className="p-2 basis-1/5 h-full"
+                    key={i}
+                    >
+                        <PostCard
+                        post={post}
+                        user={user}
+                        />
+                    </div>
                     )
                 }
             })}
