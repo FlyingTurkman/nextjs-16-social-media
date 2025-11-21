@@ -6,6 +6,15 @@ After running the project, you can fully observe how the cache component affects
 To examine how Suspense works, you can select options like “Slow 4G” in the Network settings.
 In this project, the skeleton loading part is completely simulated.
 
+Main page with post cards.
+![Main Page](https://github.com/FlyingTurkman/nextjs-16-social-media/blob/master/public/01.png?raw=true)
+
+Skeleton loading.
+![Skeleton Loading](https://github.com/FlyingTurkman/nextjs-16-social-media/blob/master/public/02.jpeg?raw=true)
+
+Skeleton loading for new post.
+![Skeleton Loading](https://github.com/FlyingTurkman/nextjs-16-social-media/blob/master/public/03.png?raw=true)
+
 ## Getting Started
 
 First, run the development server:
