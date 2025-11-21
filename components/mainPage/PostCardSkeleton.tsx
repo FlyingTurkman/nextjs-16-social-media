@@ -25,9 +25,7 @@ import { Skeleton } from "../ui/skeleton"
 export default function PostCardSkeleton() {
 
     return (
-        <Card
-        className="h-[200px]"
-        >
+        <Card>
             <CardHeader>
                 <CardTitle>
                     <div
@@ -35,10 +33,10 @@ export default function PostCardSkeleton() {
                     >
                         <Avatar>
                             <AvatarFallback>
-                                <Skeleton/>
+                                <Skeleton className="aspect-square w-full"/>
                             </AvatarFallback>
                         </Avatar>
-                        <Skeleton/>
+                        <Skeleton className="w-full h-10"/>
                     </div>
                 </CardTitle>
             </CardHeader>
@@ -47,12 +45,12 @@ export default function PostCardSkeleton() {
                 <div
                 className="flex flex-col gap-2"
                 >
-                    <Skeleton/>
+                    <Skeleton className="w-full h-8"/>
                     <Separator/>
-                    <Skeleton/>
+                    <Skeleton className="w-full h-6"/>
                     <Separator/>
-                    <Skeleton/>
-                    <Skeleton/>
+                    <Skeleton className="w-full h-6"/>
+                    <Skeleton className="w-full h-6"/>
                 </div>
             </CardContent>
         </Card>

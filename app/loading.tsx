@@ -46,6 +46,31 @@ export default function Loading() {
             >
                 <PostCardSkeleton/>
             </div>
+            <div
+            className="p-2 basis-1/5 h-full"
+            >
+                <PostCardSkeleton/>
+            </div>
+            <div
+            className="p-2 basis-1/5 h-full"
+            >
+                <PostCardSkeleton/>
+            </div>
+            <div
+            className="p-2 basis-1/5 h-full"
+            >
+                <PostCardSkeleton/>
+            </div>
+            <div
+            className="p-2 basis-1/5 h-full"
+            >
+                <PostCardSkeleton/>
+            </div>
+            <div
+            className="p-2 basis-1/5 h-full"
+            >
+                <PostCardSkeleton/>
+            </div>
         </div>
     )
 }
