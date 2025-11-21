@@ -121,6 +121,8 @@
   }
 }
 
+
+/* using for form required star */
 .required {
   @apply text-destructive font-bold
 }

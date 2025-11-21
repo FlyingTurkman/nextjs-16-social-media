@@ -20,12 +20,17 @@ import MainPageClient from "./page.client";
 
 
 export default async function Home() {
+
+  /* Cache used on there.
+  If you want to see post card skeleton disable cache in dev tools and select slow 4g or something */
+  
   'use cache'
   cacheLife({
     stale: 3600,
     revalidate: 3600,
     expire: 86400
   })
+
 
   const {
     users,

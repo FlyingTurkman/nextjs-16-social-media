@@ -3,7 +3,6 @@
 import Link from "next/link"
 import { FaHome } from "react-icons/fa"
 import { Avatar, AvatarFallback } from "../ui/avatar"
-import { FaPerson } from "react-icons/fa6"
 import { IoPerson } from "react-icons/io5"
 import NewPostDialog from "./NewPostDialog"
 

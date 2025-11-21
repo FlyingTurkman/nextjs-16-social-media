@@ -9,6 +9,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "../ui/input"
 import { Textarea } from "../ui/textarea"
 import { Button } from "../ui/button"
+import { useState } from "react"
 
 
 
@@ -29,6 +30,8 @@ export type postFormDataType = {
 
 export default function NewPostDialog() {
 
+    const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false)
+
     const { posts, setPosts } = useSiteContext()
 
     const form = useForm<postFormDataType>({
@@ -46,11 +49,21 @@ export default function NewPostDialog() {
 
     const onSubmit: SubmitHandler<postFormDataType> = ((data) => {
 
+        
         setPosts((prev) => [data, ...prev])
-        setValue('id', posts.length + 2)
+        setTimeout(() => {
+
+            /* Closing dialog after post sended */
+            setIsDialogOpen(false)
+            setValue('title', '')
+            setValue('body', '')
+        }, 3000)
     })
     return (
-        <Dialog>
+        <Dialog
+        open={isDialogOpen}
+        onOpenChange={setIsDialogOpen}
+        >
             <DialogTrigger>
                 <IoCreate/>
             </DialogTrigger>
@@ -117,7 +130,6 @@ export default function NewPostDialog() {
                         </Button>
                     </form>
                 </Form>
-
             </DialogContent>
         </Dialog>
     )
